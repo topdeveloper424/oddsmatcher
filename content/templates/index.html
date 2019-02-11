@@ -1,0 +1,42 @@
+{% extends 'layouts/main.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">No</th>
+        <th scope="col">Event Date/Time</th>
+        <th scope="col">Event Name</th>
+        <th scope="col">Bet</th>
+        <th scope="col">Market Type</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Bookie</th>
+        <th scope="col">Back Odds</th>
+        <th scope="col">Lay Odds</th>
+        <th scope="col">Avail.</th>
+        </tr>
+  </thead>
+  <tbody>
+      {% if odds_list %}
+      {% for list in odds_list %}
+      <tr>
+          <td>{{list.count}}</td>
+          <td>{{list.event_time}}</td>
+          <td>{{list.event_name}}</td>
+          <td>{{list.bet}}</td>
+          <td>{{list.market_type}}</td>
+          <td>{{list.rating}}</td>
+          <td>{{list.bookmaker}}</td>
+          <td>{{list.backOdds}}</td>
+          <td>{{list.layOdds}}</td>
+          <td>{{list.layAvail}}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+      
+  </tbody>
+</table>
+
+
+{% endblock %}
